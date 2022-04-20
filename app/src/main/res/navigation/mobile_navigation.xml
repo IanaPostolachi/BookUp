@@ -22,4 +22,9 @@
         android:name="com.example.bookup.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_my_books"
+        android:name="com.example.bookup.ui.myBooks.MyBooksFragment"
+        android:label="fragment_books"
+        tools:layout="@layout/fragment_my_books" />
 </navigation>
