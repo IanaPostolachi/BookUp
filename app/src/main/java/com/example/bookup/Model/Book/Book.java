@@ -1,23 +1,30 @@
 package com.example.bookup.Model.Book;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+
 public class Book {
-    private int id;
+    private String id;
     private String title;
-    private String author;
+    private ArrayList<String> authors;
+    @SerializedName("pageCount")
     private int pages;
     private String publisher;
+    private String publishedDate;
 
     public Book()
     {
 
     }
 
-    public Book(int id, String title, String author, int pages, String publisher) {
+    public Book(String id, String title, ArrayList<String> authors, int pages, String publisher, String publishedDate) {
         this.id = id;
         this.title = title;
-        this.author = author;
+        this.authors = authors;
         this.pages = pages;
         this.publisher = publisher;
+        this.publishedDate = publishedDate;
     }
 
 
@@ -37,12 +44,12 @@ public class Book {
         this.pages = pages;
     }
 
-    public String getAuthor() {
-        return author;
+    public ArrayList<String> getAuthor() {
+        return authors;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthor(ArrayList<String> authors) {
+        this.authors = authors;
     }
 
     public String getTitle() {
@@ -53,11 +60,19 @@ public class Book {
         this.title = title;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
+    }
+
+    public String getPublishedDate() {
+        return publishedDate;
+    }
+
+    public void setPublishedDate(String publishedDate) {
+        this.publishedDate = publishedDate;
     }
 }

@@ -3,8 +3,8 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
+        android:icon="@drawable/ic_search"
+        android:title="@string/Search" />
 
     <item
         android:id="@+id/navigation_my_books"
@@ -12,11 +12,7 @@
         android:title="@string/MyBooks"/>
 
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_search"
-        android:title="@string/Search" />
-    <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_settings"
         android:icon="@drawable/ic_settings"
         android:title="@string/Settings" />
 
