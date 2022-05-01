@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.bookup.ui.home.BooksActivity;
 import com.example.bookup.ui.home.HomeViewModel;
@@ -51,6 +52,14 @@ public class MainActivity extends AppCompatActivity {
                 searchBooksBar.setText("");
             }
         });
+
+//        Bundle bundle = getIntent().getExtras();
+//        Boolean empty = bundle.getBoolean("empty");
+//
+//        if (empty)
+//        {
+//            Toast.makeText(this, "No books found", Toast.LENGTH_SHORT).show();
+//        }
     }
 
 }

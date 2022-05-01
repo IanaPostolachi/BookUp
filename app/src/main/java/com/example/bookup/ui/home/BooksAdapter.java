@@ -45,17 +45,27 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ViewHolder> 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.yearPublished.setText(books.get(position).getVolumeInfo().getPublishedDate());
+        if (books.get(position).getVolumeInfo().getPublishedDate() != null) {
+            holder.yearPublished.setText(books.get(position).getVolumeInfo().getPublishedDate());
+        }
+        else {
+            holder.yearPublished.setText(R.string.no_date);
+        }
         String authors = "";
         if (books.get(position).getVolumeInfo().getAuthors() != null) {
             authors = String.join(", ", books.get(position).getVolumeInfo().getAuthors());
+            holder.author.setText(authors);
         }
-        holder.author.setText(authors);
+        else
+        {
+            holder.author.setText(R.string.no_authors);
+        }
         holder.title.setText(books.get(position).getVolumeInfo().getTitle());
-        if (books.get(position).getVolumeInfo().getImageLinks().getSmallThumbnail() != null)
-        Glide.with(context)
-                .load(books.get(position).getVolumeInfo().getImageLinks().getSmallThumbnail())
-                .into(holder.booksImage);
+//        if (books.get(position).getVolumeInfo().getImageLinks().getSmallThumbnail() != null)
+            Glide.with(context)
+                    .load(books.get(position).getVolumeInfo().getImageLinks().getSmallThumbnail())
+                    .into(holder.booksImage);
+
     }
 
     @Override

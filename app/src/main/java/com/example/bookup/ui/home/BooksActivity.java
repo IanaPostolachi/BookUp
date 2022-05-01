@@ -1,6 +1,9 @@
 package com.example.bookup.ui.home;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,7 +12,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import com.example.bookup.MainActivity;
 import com.example.bookup.Model.Book.Book;
 import com.example.bookup.R;
 import com.google.gson.Gson;
@@ -24,6 +30,8 @@ public class BooksActivity extends AppCompatActivity implements BooksAdapter.OnL
     private Gson gson;
     private ArrayList<Book> booksToDisplay;
     private LinearLayout backButton;
+    private ProgressBar progressBar;
+    private MutableLiveData<Boolean> isLoading = new MutableLiveData<>(false);
 
 
     @Override
@@ -31,8 +39,10 @@ public class BooksActivity extends AppCompatActivity implements BooksAdapter.OnL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_books);
 
+        isLoading.setValue(true);
         searchedBooks = findViewById(R.id.Books);
         backButton = findViewById(R.id.back_button);
+        progressBar = findViewById(R.id.progressBarForSearch);
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         this.gson = new Gson();
 
@@ -40,16 +50,30 @@ public class BooksActivity extends AppCompatActivity implements BooksAdapter.OnL
         String searchKeyWord = bundle.getString("searchKeyWord");
 
         homeViewModel.searchBooks(searchKeyWord);
-        homeViewModel.getSearchedBooks().observe(this,books ->{
-            booksToDisplay = new ArrayList<>();
-            searchedBooks.hasFixedSize();
-            searchedBooks.setLayoutManager(new LinearLayoutManager(this));
-            for (int i = 0; i < books.size(); i++)
-            {
-                booksToDisplay.add(books.get(i));
-            }
-            BooksAdapter adapter = new BooksAdapter(books, getBaseContext(),this);
-            searchedBooks.setAdapter(adapter);
+//        if (homeViewModel.getSearchedBooks() != null) {
+            homeViewModel.getSearchedBooks().observe(this, books -> {
+//            if (!books.isEmpty()) {
+                booksToDisplay = new ArrayList<>();
+                searchedBooks.hasFixedSize();
+                searchedBooks.setLayoutManager(new LinearLayoutManager(this));
+                for (int i = 0; i < books.size(); i++) {
+                    booksToDisplay.add(books.get(i));
+                }
+                isLoading.setValue(false);
+                BooksAdapter adapter = new BooksAdapter(books, getBaseContext(), this);
+                searchedBooks.setAdapter(adapter);
+//            }
+            });
+//        }
+//        else
+//        {
+//            Intent intent = new Intent(this, MainActivity.class);
+//            startActivity(intent);
+//        }
+
+        isLoading().observe(this, isLoading -> {
+            int visibility = isLoading ? View.VISIBLE : View.INVISIBLE;
+            progressBar.setVisibility(visibility);
         });
 
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -74,5 +98,9 @@ public class BooksActivity extends AppCompatActivity implements BooksAdapter.OnL
         intent.putExtra("book", toNewView);
 
         startActivityForResult(intent, 1);
+    }
+
+    public LiveData<Boolean> isLoading() {
+        return isLoading;
     }
 }

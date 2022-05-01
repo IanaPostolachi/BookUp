@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "921806327374",
+    "project_id": "bookup-727f0",
+    "storage_bucket": "bookup-727f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921806327374:android:245e2d35c95b4678987d1f",
+        "android_client_info": {
+          "package_name": "com.example.bookup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "921806327374-dk7j5jddtbto049prkkcnhmlaglf0jnm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOqto9UjqxD78v3NTPDpP3nreYZOr8j0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "921806327374-dk7j5jddtbto049prkkcnhmlaglf0jnm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
