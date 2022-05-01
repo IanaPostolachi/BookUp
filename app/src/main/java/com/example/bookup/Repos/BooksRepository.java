@@ -35,7 +35,7 @@ public class BooksRepository {
 
 
 
-    public LiveData<ArrayList<Book>> searchBook(String name) {
+    public void searchBook(String name) {
         BooksApi booksApi = BooksServicesGenerator.getBooksAPI();
         Call<BookResponse> call = booksApi.searchBooks(name);
         call.enqueue(new Callback<BookResponse>() {
@@ -53,7 +53,6 @@ public class BooksRepository {
                 Log.i("Retrofit", "Something went wrong :(");
             }
         });
-        return searchedBooks;
     }
 
     public MutableLiveData<ArrayList<Book>> getSearchedBooks() {

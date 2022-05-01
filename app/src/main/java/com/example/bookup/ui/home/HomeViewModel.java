@@ -31,9 +31,9 @@ public class HomeViewModel extends ViewModel {
         return booksRepository.getSearchedBooks();
     }
 
-    public LiveData<ArrayList<Book>> searchBooks(String name)
+    public void searchBooks(String name)
     {
-        return booksRepository.searchBook(name);
+        booksRepository.searchBook(name);
     }
 
 }

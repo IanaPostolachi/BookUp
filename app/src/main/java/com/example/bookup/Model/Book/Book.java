@@ -6,73 +6,25 @@ import java.util.ArrayList;
 
 public class Book {
     private String id;
-    private String title;
-    private ArrayList<String> authors;
-    @SerializedName("pageCount")
-    private int pages;
-    private String publisher;
-    private String publishedDate;
+    private VolumeInfo volumeInfo;
 
     public Book()
     {
 
     }
 
-    public Book(String id, String title, ArrayList<String> authors, int pages, String publisher, String publishedDate) {
+    public Book(String id, VolumeInfo volumeInfo) {
         this.id = id;
-        this.title = title;
-        this.authors = authors;
-        this.pages = pages;
-        this.publisher = publisher;
-        this.publishedDate = publishedDate;
+        this.volumeInfo = volumeInfo;
     }
 
 
-    public String getPublisher() {
-        return publisher;
+    public VolumeInfo getVolumeInfo() {
+        return volumeInfo;
     }
 
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
+    public void setVolumeInfo(VolumeInfo volumeInfo) {
+        this.volumeInfo = volumeInfo;
     }
 
-    public int getPages() {
-        return pages;
-    }
-
-    public void setPages(int pages) {
-        this.pages = pages;
-    }
-
-    public ArrayList<String> getAuthor() {
-        return authors;
-    }
-
-    public void setAuthor(ArrayList<String> authors) {
-        this.authors = authors;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getPublishedDate() {
-        return publishedDate;
-    }
-
-    public void setPublishedDate(String publishedDate) {
-        this.publishedDate = publishedDate;
-    }
 }

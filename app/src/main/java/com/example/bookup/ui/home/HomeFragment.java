@@ -28,27 +28,8 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-
-        searchBooksBar = root.findViewById(R.id.search_bar);
-        myListsView = root.findViewById(R.id.my_books_list);
-        searchButton = root.findViewById(R.id.search_button);
-
-
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                homeViewModel.searchBooks(searchBooksBar.getText().toString());
-                displayFragment();
-            }
-        });
         return root;
     }
 
-    public void displayFragment()
-    {
-        BooksFragment booksFragment = BooksFragment.newInstance();
-        FragmentManager fragmentManager = getParentFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.booksContainer,booksFragment).addToBackStack(null).commit();
-    }
+
 }
