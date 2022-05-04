@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">BookUp!</string>
+    <string name="welcomeMessage">Welcome to BookUp!</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -21,4 +22,5 @@
     <string name="sign_out">Sign Out</string>
     <string name="no_date">No publish date </string>
     <string name="no_authors">No authors</string>
+    <string name="no_books_found">No books found</string>
 </resources>

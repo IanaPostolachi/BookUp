@@ -9,7 +9,8 @@
         android:id="@+id/navigation_home"
         android:name="com.example.bookup.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_settings"
@@ -20,6 +21,7 @@
     <fragment
         android:id="@+id/navigation_my_books"
         android:name="com.example.bookup.ui.myBooks.MyBooksFragment"
+        tools:layout="@layout/fragment_my_books"
         android:label="fragment_books"
-        tools:layout="@layout/fragment_my_books" />
+        />
 </navigation>

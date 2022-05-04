@@ -26,8 +26,7 @@ public class MyBooksFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         MyBooksViewModel myBooksViewModel =
                 new ViewModelProvider(this).get(MyBooksViewModel.class);

@@ -36,4 +36,8 @@ public class HomeViewModel extends ViewModel {
         booksRepository.searchBook(name);
     }
 
+    public LiveData<Integer> getTotalItemsSearched()
+    {
+        return booksRepository.getTotalItemsSearched();
+    }
 }

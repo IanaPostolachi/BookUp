@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Book {
     private String id;
     private VolumeInfo volumeInfo;
+    private int totalItems;
 
     public Book()
     {
@@ -27,4 +28,11 @@ public class Book {
         this.volumeInfo = volumeInfo;
     }
 
+    public int getTotalItems() {
+        return totalItems;
+    }
+
+    public void setTotalItems(int totalItems) {
+        this.totalItems = totalItems;
+    }
 }

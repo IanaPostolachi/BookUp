@@ -1,4 +1,4 @@
-package com.example.bookup.ui.settings;
+package com.example.bookup;
 
 import android.app.Application;
 
@@ -9,12 +9,11 @@ import androidx.lifecycle.ViewModel;
 import com.example.bookup.Repos.UsersRepository;
 import com.google.firebase.auth.FirebaseUser;
 
-public class SettingsViewModel extends AndroidViewModel {
+public class SignInHomeViewModel extends AndroidViewModel {
+    private UsersRepository usersRepository;
 
 
-    UsersRepository usersRepository;
-
-    public SettingsViewModel(Application app) {
+    public SignInHomeViewModel(Application app) {
         super(app);
         usersRepository = UsersRepository.getInstance(app);
     }

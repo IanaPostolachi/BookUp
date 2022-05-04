@@ -21,10 +21,6 @@ import com.example.bookup.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
 
-    private EditText searchBooksBar;
-    private RecyclerView myListsView;
-    private Button searchButton;
-
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);

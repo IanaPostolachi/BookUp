@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bookup.MainActivity;
@@ -30,6 +31,7 @@ public class BooksActivity extends AppCompatActivity implements BooksAdapter.OnL
     private Gson gson;
     private ArrayList<Book> booksToDisplay;
     private LinearLayout backButton;
+    private TextView noBooks;
     private ProgressBar progressBar;
     private MutableLiveData<Boolean> isLoading = new MutableLiveData<>(false);
 
@@ -43,16 +45,18 @@ public class BooksActivity extends AppCompatActivity implements BooksAdapter.OnL
         searchedBooks = findViewById(R.id.Books);
         backButton = findViewById(R.id.back_button);
         progressBar = findViewById(R.id.progressBarForSearch);
+        noBooks = findViewById(R.id.no_books);
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         this.gson = new Gson();
+        noBooks.setVisibility(View.INVISIBLE);
 
         Bundle bundle = getIntent().getExtras();
         String searchKeyWord = bundle.getString("searchKeyWord");
 
         homeViewModel.searchBooks(searchKeyWord);
-//        if (homeViewModel.getSearchedBooks() != null) {
-            homeViewModel.getSearchedBooks().observe(this, books -> {
-//            if (!books.isEmpty()) {
+        homeViewModel.getSearchedBooks().observe(this, books -> {
+            if (!books.isEmpty()) {
+                noBooks.setVisibility(View.INVISIBLE);
                 booksToDisplay = new ArrayList<>();
                 searchedBooks.hasFixedSize();
                 searchedBooks.setLayoutManager(new LinearLayoutManager(this));
@@ -62,14 +66,14 @@ public class BooksActivity extends AppCompatActivity implements BooksAdapter.OnL
                 isLoading.setValue(false);
                 BooksAdapter adapter = new BooksAdapter(books, getBaseContext(), this);
                 searchedBooks.setAdapter(adapter);
-//            }
-            });
-//        }
-//        else
-//        {
-//            Intent intent = new Intent(this, MainActivity.class);
-//            startActivity(intent);
-//        }
+
+            } else {
+                BooksAdapter adapter = new BooksAdapter(new ArrayList<>(), getBaseContext(), this);
+                searchedBooks.setAdapter(adapter);
+                isLoading.setValue(false);
+                noBooks.setVisibility(View.VISIBLE);
+            }
+        });
 
         isLoading().observe(this, isLoading -> {
             int visibility = isLoading ? View.VISIBLE : View.INVISIBLE;
@@ -84,10 +88,9 @@ public class BooksActivity extends AppCompatActivity implements BooksAdapter.OnL
         });
     }
 
-    public void goBack(View v)
-    {
-        Intent intent = new Intent();
-        setResult(RESULT_OK,intent);
+    public void goBack(View v) {
+//        Intent intent = new Intent();
+//        setResult(RESULT_OK, intent);
         finish();
     }
 

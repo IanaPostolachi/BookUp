@@ -20,10 +20,12 @@ import retrofit2.internal.EverythingIsNonNull;
 public class BooksRepository {
     private static BooksRepository instance;
     private final MutableLiveData<ArrayList<Book>> searchedBooks;
+    private final MutableLiveData<Integer> totalItemsSearched;
 
     public BooksRepository()
     {
         searchedBooks = new MutableLiveData<>();
+        totalItemsSearched = new MutableLiveData<>();
     }
 
     public static synchronized BooksRepository getInstance() {
@@ -43,7 +45,9 @@ public class BooksRepository {
             @Override
             public void onResponse(Call<BookResponse> call, Response<BookResponse> response) {
                 if (response.isSuccessful()) {
-                    searchedBooks.setValue(response.body().getBooks());
+
+
+                    searchedBooks.setValue(response.body().getTotalItems() != 0 ? response.body().getBooks() : new ArrayList<>());
                 }
             }
 
@@ -57,5 +61,9 @@ public class BooksRepository {
 
     public MutableLiveData<ArrayList<Book>> getSearchedBooks() {
         return searchedBooks;
+    }
+
+    public MutableLiveData<Integer> getTotalItemsSearched() {
+        return totalItemsSearched;
     }
 }

@@ -9,6 +9,6 @@ import retrofit2.http.Query;
 
 public interface BooksApi {
 
-    @GET("books/v1/volumes?")
+    @GET("books/v1/volumes?&maxResults=30")
     Call<BookResponse> searchBooks(@Query("q") String nameOfThe);
 }
