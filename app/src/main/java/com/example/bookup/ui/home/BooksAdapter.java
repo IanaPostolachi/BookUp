@@ -61,11 +61,15 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ViewHolder> 
             holder.author.setText(R.string.no_authors);
         }
         holder.title.setText(books.get(position).getVolumeInfo().getTitle());
-//        if (books.get(position).getVolumeInfo().getImageLinks().getSmallThumbnail() != null)
+        if (books.get(position).getVolumeInfo().getImageLinks() != null) {
             Glide.with(context)
                     .load(books.get(position).getVolumeInfo().getImageLinks().getSmallThumbnail())
                     .into(holder.booksImage);
-
+        }
+        else
+        {
+            holder.booksImage.setImageResource(R.drawable.no_image_available_iconjpg);
+        }
     }
 
     @Override

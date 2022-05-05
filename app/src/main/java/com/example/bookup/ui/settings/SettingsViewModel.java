@@ -10,8 +10,6 @@ import com.example.bookup.Repos.UsersRepository;
 import com.google.firebase.auth.FirebaseUser;
 
 public class SettingsViewModel extends AndroidViewModel {
-
-
     UsersRepository usersRepository;
 
     public SettingsViewModel(Application app) {

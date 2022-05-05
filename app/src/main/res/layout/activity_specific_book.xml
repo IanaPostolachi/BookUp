@@ -55,6 +55,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.172">
 
+
             <ImageView
                 android:id="@+id/imageForTheBook"
                 android:layout_width="214dp"
@@ -69,11 +70,36 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="27dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/Title"
                 android:textColor="@color/black"
                 android:textSize="25sp"
                 android:textStyle="bold" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp">
+
+    <Button
+        android:id="@+id/AddToReadLater"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="15dp"
+        android:layout_weight="2"
+        android:background="@drawable/button_style"
+        android:text="@string/AddToReadLater" />
+
+    <ImageView
+        android:id="@+id/AddToFav"
+        android:layout_width="51dp"
+        android:layout_height="48dp"
+        android:src="@drawable/red_heart"
+        android:layout_marginEnd="20dp"/>
+
+
+</LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linearLayout2"

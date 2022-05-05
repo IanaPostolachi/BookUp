@@ -23,4 +23,11 @@
     <string name="no_date">No publish date </string>
     <string name="no_authors">No authors</string>
     <string name="no_books_found">No books found</string>
+    <string name="Favourites">Favourites</string>
+    <string name="ReadLater">Read later</string>
+    <string name="Unknown">Unknown</string>
+    <string name="ListName">List name</string>
+    <string name="NoBooksMessage">You have no books in your library. Add some!</string>
+    <string name="AddToReadLater">Add to Read later</string>
+    <string name="Email">Email</string>
 </resources>

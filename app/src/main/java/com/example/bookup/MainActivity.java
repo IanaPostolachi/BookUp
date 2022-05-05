@@ -2,29 +2,13 @@ package com.example.bookup;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.bookup.ui.home.BooksActivity;
-import com.example.bookup.ui.home.HomeFragment;
 import com.example.bookup.ui.home.HomeViewModel;
-import com.example.bookup.ui.myBooks.TypeOfListAdapter;
 import com.firebase.ui.auth.AuthUI;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.NavigationUI;
-
-import com.example.bookup.databinding.ActivityMainBinding;
 
 import java.util.Arrays;
 import java.util.List;
@@ -32,12 +16,12 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 1;
-    private SignInHomeViewModel signInHomeViewModel;
+    private HomeViewModel HomeViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        signInHomeViewModel = new ViewModelProvider(this).get(SignInHomeViewModel.class);
+        HomeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
 //        signInHomeViewModel.signOut();
         checkIfSignedIn();
@@ -49,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
      * Else send him to Home
      */
     private void checkIfSignedIn() {
-        signInHomeViewModel.getCurrentUser().observe(this, user -> {
+        HomeViewModel.getCurrentUser().observe(this, user -> {
             if (user != null) {
                 System.out.println("Not workin----------------->" + user.getEmail());
                 startHomeFragment();
@@ -65,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void startHomeFragment() {
         startActivity(new Intent(this, HomeActivity.class));
-        signInHomeViewModel.init();
+        HomeViewModel.init();
         finish();
 //            startActivity(new Intent(this, MainActivity.class));
     }

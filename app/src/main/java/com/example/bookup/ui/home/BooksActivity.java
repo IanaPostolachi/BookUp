@@ -98,7 +98,9 @@ public class BooksActivity extends AppCompatActivity implements BooksAdapter.OnL
     public void onListItemClick(int clickedItemIndex) {
         Intent intent = new Intent(this, SpecificBookActivity.class);
         String toNewView = gson.toJson(booksToDisplay.get(clickedItemIndex));
+        int clicked = clickedItemIndex;
         intent.putExtra("book", toNewView);
+        intent.putExtra("position", clickedItemIndex);
 
         startActivityForResult(intent, 1);
     }

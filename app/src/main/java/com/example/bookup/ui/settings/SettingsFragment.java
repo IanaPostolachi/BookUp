@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -18,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class SettingsFragment extends Fragment {
 
     private Button signOut;
+    private TextView userEmail;
     private SettingsViewModel viewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -34,6 +36,9 @@ public class SettingsFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        userEmail = root.findViewById(R.id.Email_to_display);
+        userEmail.setText(viewModel.getCurrentUser().getValue().getEmail());
 
         return root;
     }

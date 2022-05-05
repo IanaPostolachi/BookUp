@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class BookList {
     private String name;
     private String id;
-    private int listImage;
+    private int image;
     private ArrayList<Book> books;
 
     public BookList(String name)
@@ -35,12 +35,12 @@ public class BookList {
         this.id = id;
     }
 
-    public int getListImage() {
-        return listImage;
+    public int getImage() {
+        return image;
     }
 
-    public void setListImage(int listImage) {
-        this.listImage = listImage;
+    public void setImage(int image) {
+        this.image = image;
     }
 
     public ArrayList<Book> getBooks() {
