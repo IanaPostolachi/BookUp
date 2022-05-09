@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.bookup.MainActivity;
 import com.example.bookup.Model.Book.Book;
+import com.example.bookup.Model.Book.BookList;
 import com.example.bookup.R;
 import com.google.gson.Gson;
 
@@ -52,6 +53,9 @@ public class BooksActivity extends AppCompatActivity implements BooksAdapter.OnL
 
         Bundle bundle = getIntent().getExtras();
         String searchKeyWord = bundle.getString("searchKeyWord");
+        String received= bundle.getString("myBooks");
+        BookList myBooks = gson.fromJson(received, BookList.class);
+
 
         homeViewModel.searchBooks(searchKeyWord);
         homeViewModel.getSearchedBooks().observe(this, books -> {
@@ -89,8 +93,6 @@ public class BooksActivity extends AppCompatActivity implements BooksAdapter.OnL
     }
 
     public void goBack(View v) {
-//        Intent intent = new Intent();
-//        setResult(RESULT_OK, intent);
         finish();
     }
 
@@ -98,7 +100,7 @@ public class BooksActivity extends AppCompatActivity implements BooksAdapter.OnL
     public void onListItemClick(int clickedItemIndex) {
         Intent intent = new Intent(this, SpecificBookActivity.class);
         String toNewView = gson.toJson(booksToDisplay.get(clickedItemIndex));
-        int clicked = clickedItemIndex;
+
         intent.putExtra("book", toNewView);
         intent.putExtra("position", clickedItemIndex);
 

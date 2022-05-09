@@ -85,7 +85,7 @@ public class SpecificBookActivity extends AppCompatActivity {
 //                }
 //                else
 //                {
-//                    Toast.makeText(getBaseContext(), book.getVolumeInfo().getTitle() + " already added", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getBaseContext(), book.getVolumeInfo().getTitle() + " already on the list", Toast.LENGTH_LONG).show();
 //                }
             }
         });

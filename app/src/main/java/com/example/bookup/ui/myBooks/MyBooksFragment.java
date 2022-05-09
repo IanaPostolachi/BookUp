@@ -1,5 +1,6 @@
 package com.example.bookup.ui.myBooks;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.bookup.Model.Book.BookList;
 import com.example.bookup.R;
+import com.example.bookup.ui.home.BooksActivity;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -115,10 +117,14 @@ public class MyBooksFragment extends Fragment implements TypeOfListAdapter.OnLis
 
     @Override
     public void onListItemClick(int clickedItemIndex) {
-        if (bookLists.get(clickedItemIndex).isEmpty()) {
-            Toast.makeText(getActivity(), "Nothing here yet", Toast.LENGTH_SHORT).show();
-        } else {
+//        if (!bookLists.get(clickedItemIndex).isEmpty()) {
+            Intent intent = new Intent(getContext(), SelectedListActivity.class);
+            String booksToBeDisplayed = gson.toJson(bookLists.get(clickedItemIndex));
+            intent.putExtra("myBooks", booksToBeDisplayed);
 
-        }
+            startActivityForResult(intent,1);
+//        } else {
+//            Toast.makeText(getActivity(), "Nothing here yet", Toast.LENGTH_SHORT).show();
+//        }
     }
 }

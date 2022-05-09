@@ -31,7 +31,6 @@ public class HomeActivity extends AppCompatActivity {
         searchBooksBar = findViewById(R.id.search_bar);
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
-//        navView.setBackgroundColor(getResources().getColor(R.color.nav_bar_color));
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupWithNavController(navView, navController);
 

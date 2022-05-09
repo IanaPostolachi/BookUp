@@ -1,5 +1,6 @@
 package com.example.bookup.Model.DAOs;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -16,6 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class BookDAO extends LiveData<Book> {
     private DatabaseReference reference;
@@ -51,7 +53,7 @@ public class BookDAO extends LiveData<Book> {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 allLists.clear();
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
-                    BookList bookList = getBookList(child.getKey());
+                    BookList bookList = getBookList(child);
                     allLists.add(bookList);
                 }
                 allBookLists.setValue(allLists);
@@ -65,40 +67,34 @@ public class BookDAO extends LiveData<Book> {
         return allBookLists;
     }
 
-    public BookList getBookList(String id) {
+    public BookList getBookList(DataSnapshot datasnapshot) {
         BookList bookList;
 
-        switch (id) {
+        switch (datasnapshot.getKey()) {
             case "read_later":
                 bookList = new BookList("Read later");
-                bookList.setId(id);
-                bookList.setImage(R.drawable.read_later_icon);
+                bookList.setId(datasnapshot.getKey());
+                bookList.setImage(R.drawable.bookmark);
+                ArrayList<Book> readLaterBooks = new ArrayList<>();
+                for (DataSnapshot child : datasnapshot.getChildren()) {
+                    readLaterBooks.add(child.getValue(Book.class));
+                }
+                bookList.setBooks(readLaterBooks);
                 break;
             case "favorite":
                 bookList = new BookList("Favorites");
-                bookList.setId(id);
-                bookList.setImage(R.drawable.final_heart);
+                bookList.setId(datasnapshot.getKey());
+                bookList.setImage(R.drawable.heart_book);
+                ArrayList<Book> favoriteBooks = new ArrayList<>();
+                for (DataSnapshot child : datasnapshot.getChildren()) {
+                    favoriteBooks.add(child.getValue(Book.class));
+                }
+                bookList.setBooks(favoriteBooks);
                 break;
             default:
                 bookList = new BookList("Unknown");
                 bookList.setImage(R.drawable.ic_unknown);
         }
-
-//        reference.child(id).orderByChild("personalRating").addValueEventListener(new ValueEventListener() {
-//
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                movieList.getList().clear();
-//                for (DataSnapshot child : dataSnapshot.getChildren()) {
-//                    Movie movie = child.getValue(Movie.class);
-//                    movie.setId(child.getKey());
-//                    movieList.setId(dataSnapshot.getKey());
-//                    movieList.addMovie(movie);
-//                }
-//                Collections.reverse(movieList.getList());
-//            }
-//
-//            public void onCancelled(DatabaseError databaseError) {}
-//        });
 
         return bookList;
     }

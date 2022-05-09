@@ -12,11 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookUp">
         <activity
+            android:name=".ui.myBooks.OneBookMyListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.myBooks.SelectedListActivity"
+            android:exported="false" />
+        <activity
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
             android:name=".SignInActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".ui.home.BooksActivity"
             android:exported="false" />

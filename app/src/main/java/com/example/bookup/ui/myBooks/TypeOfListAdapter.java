@@ -62,6 +62,7 @@ public class TypeOfListAdapter extends RecyclerView.Adapter<TypeOfListAdapter.Vi
             listImage = itemView.findViewById(R.id.listImage);
             listName = itemView.findViewById(R.id.listName);
             itemView.setOnClickListener(this);
+            listImage.setColorFilter(R.color.black);
         }
 
         @Override

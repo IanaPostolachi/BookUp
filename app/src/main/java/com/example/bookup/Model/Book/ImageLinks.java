@@ -5,6 +5,12 @@ public class ImageLinks {
     private String smallThumbnail;
     private String thumbnail;
 
+
+    public ImageLinks()
+    {
+
+    }
+
     public ImageLinks(String smallThumbnail, String thumbnail) {
         this.smallThumbnail = smallThumbnail;
         this.thumbnail = thumbnail;
