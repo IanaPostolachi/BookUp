@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Iana Postolachi/AndroidStudioProjects/BookUp/app/src/main/res/drawable-anydpi/ic_back.xml" value="0.1375" />
+        <entry key="..\:/Users/Iana Postolachi/AndroidStudioProjects/BookUp/app/src/main/res/drawable-anydpi/ic_baseline_do_not_disturb_alt_24.xml" value="0.124" />
         <entry key="..\:/Users/Iana Postolachi/AndroidStudioProjects/BookUp/app/src/main/res/drawable-anydpi/ic_my_books_icon.xml" value="0.1375" />
         <entry key="..\:/Users/Iana Postolachi/AndroidStudioProjects/BookUp/app/src/main/res/drawable-anydpi/ic_settings.xml" value="0.184" />
         <entry key="..\:/Users/Iana Postolachi/AndroidStudioProjects/BookUp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
@@ -18,7 +19,7 @@
         <entry key="..\:/Users/Iana Postolachi/AndroidStudioProjects/BookUp/app/src/main/res/layout/activity_books.xml" value="0.22" />
         <entry key="..\:/Users/Iana Postolachi/AndroidStudioProjects/BookUp/app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="..\:/Users/Iana Postolachi/AndroidStudioProjects/BookUp/app/src/main/res/layout/activity_main.xml" value="0.12" />
-        <entry key="..\:/Users/Iana Postolachi/AndroidStudioProjects/BookUp/app/src/main/res/layout/activity_one_book_my_list.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Iana Postolachi/AndroidStudioProjects/BookUp/app/src/main/res/layout/activity_one_book_my_list.xml" value="0.1" />
         <entry key="..\:/Users/Iana Postolachi/AndroidStudioProjects/BookUp/app/src/main/res/layout/activity_selected_list.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Iana Postolachi/AndroidStudioProjects/BookUp/app/src/main/res/layout/activity_sign_in.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/Iana Postolachi/AndroidStudioProjects/BookUp/app/src/main/res/layout/activity_specific_book.xml" value="0.16666666666666666" />
@@ -31,7 +32,7 @@
         <entry key="..\:/Users/Iana Postolachi/AndroidStudioProjects/BookUp/app/src/main/res/layout/fragment_my_books.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/Iana Postolachi/AndroidStudioProjects/BookUp/app/src/main/res/layout/fragment_notifications.xml" value="0.13333333333333333" />
         <entry key="..\:/Users/Iana Postolachi/AndroidStudioProjects/BookUp/app/src/main/res/layout/fragment_second.xml" value="0.1" />
-        <entry key="..\:/Users/Iana Postolachi/AndroidStudioProjects/BookUp/app/src/main/res/layout/fragment_settings.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Iana Postolachi/AndroidStudioProjects/BookUp/app/src/main/res/layout/fragment_settings.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Iana Postolachi/AndroidStudioProjects/BookUp/app/src/main/res/layout/login.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/Iana Postolachi/AndroidStudioProjects/BookUp/app/src/main/res/layout/movies_fragment.xml" value="0.22" />
         <entry key="..\:/Users/Iana Postolachi/AndroidStudioProjects/BookUp/app/src/main/res/layout/my_books_chosen_list.xml" value="0.14407866609662248" />

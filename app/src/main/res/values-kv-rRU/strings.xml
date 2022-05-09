@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BookUp!</string>
+    <string name="welcomeMessage">Добро пожаловать в BookUp!</string>
+    <string name="NoBooksMessage">У вас нет книг в библиотеке. Добавьте книгу!</string>
+    <string name="title_home">Домой</string>
+    <string name="Settings">Настройки</string>
+    <string name="Search">Поиск</string>
+    <string name="SearchForBook">Искать книгу</string>
+    <string name="MyBooks">Мои книги</string>
+    <string name="Popular">Популярное</string>
+    <string name="Title">Заголовок</string>
+    <string name="YearPublished">Дата издания:</string>
+    <string name="PageCount">Кол-во страниц:</string>
+    <string name="Description">Содержание</string>
+    <string name="back">Назад</string>
+    <string name="SignIn">Логин</string>
+    <string name="sign_in_with_google">Регистрация с аккаунтом Google</string>
+    <string name="sign_in_with_mail">Регистрация с аккаунтом Gmail</string>
+    <string name="sign_out">Выйти</string>
+    <string name="no_date">Нет даты издания</string>
+    <string name="no_authors">Нет авторов</string>
+    <string name="no_books_found">Книг не найдено</string>
+    <string name="Favourites">Понравившиеся</string>
+    <string name="ReadLater">Читать позже</string>
+    <string name="Unknown">Неизвестно</string>
+    <string name="Email">Емайл</string>
+    <string name="AddToReadLater">Добавить в \"Читать позже\"</string>
+    <string name="ChooseLanguage">Выбери язык</string>
+    <string name="Language">Язык</string>
+    <string name="Yupee">Пользуйтесь нездоровье приложением BookUp!</string>
+</resources>

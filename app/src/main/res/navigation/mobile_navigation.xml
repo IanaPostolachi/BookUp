@@ -15,7 +15,7 @@
     <fragment
         android:id="@+id/navigation_settings"
         android:name="com.example.bookup.ui.settings.SettingsFragment"
-        android:label="@string/title_dashboard"
+        android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
 
     <fragment

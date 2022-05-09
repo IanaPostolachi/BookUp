@@ -1,6 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">BookUp!</string>
     <string name="welcomeMessage">Welcome to BookUp!</string>
+    <string name="NoBooksMessage">You have no books in your library. Add some!</string>
     <string name="title_home">Home</string>
     <string name="Settings">Settings</string>
     <string name="Search">Search</string>
@@ -12,22 +14,21 @@
     <string name="PageCount">Page Count:</string>
     <string name="Description">Description</string>
     <string name="back">Back</string>
-    <string name="title_activity_specific_book" translatable="false">SpecificBookActivity</string>
     <string name="SignIn" translatable="false">Sign in</string>
     <string name="sign_in_with_google" translatable="false">Sign-In with Google</string>
     <string name="sign_in_with_mail" translatable="false">Sign-In with Mail</string>
     <string name="sign_out">Sign Out</string>
-    <string name="no_date">No publish date </string>
+    <string name="no_date">"No publish date "</string>
     <string name="no_authors">No authors</string>
     <string name="no_books_found">No books found</string>
     <string name="Favourites">Favourites</string>
     <string name="ReadLater">Read later</string>
     <string name="Unknown">Unknown</string>
-    <string name="ListName" translatable="false">List name</string>
-    <string name="NoBooksMessage">You have no books in your library. Add some!</string>
-    <string name="AddToReadLater">Add to Read later</string>
     <string name="Email" translatable="false">Email</string>
+    <string name="AddToReadLater">Add to Read later</string>
     <string name="ChooseLanguage">Choose language</string>
+    <string name="title_activity_specific_book" translatable="false">SpecificBookActivity</string>
+    <string name="ListName" translatable="false">List name</string>
     <string name="Language">Language:</string>
     <string name="Yupee">Enjoy the BookUp! app</string>
 </resources>
