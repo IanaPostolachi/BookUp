@@ -30,4 +30,6 @@
     <string name="ChooseLanguage">Choose language</string>
     <string name="Language">Language:</string>
     <string name="Yupee">Enjoy the BookUp! app</string>
+    <string name="Authors">Authors:</string>
+    <string name="remove">Remove from my list</string>
 </resources>

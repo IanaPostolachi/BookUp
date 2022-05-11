@@ -63,7 +63,14 @@ public class SettingsFragment extends Fragment {
 
         userEmail = root.findViewById(R.id.Email_to_display);
         String yey = getResources().getString(R.string.Yupee);
-        userEmail.setText(yey + "\t" + viewModel.getCurrentUser().getValue().getEmail());
+        if (viewModel.getCurrentUser().getValue().getDisplayName() != null) {
+            userEmail.setText(yey + "\t" + viewModel.getCurrentUser().getValue().getDisplayName());
+        }
+        else
+        {
+            userEmail.setText(yey + "\t" + viewModel.getCurrentUser().getValue().getEmail());
+        }
+
         userPicture = root.findViewById(R.id.userPicture);
         if (viewModel.getCurrentUser().getValue().getPhotoUrl()!= null)
         {

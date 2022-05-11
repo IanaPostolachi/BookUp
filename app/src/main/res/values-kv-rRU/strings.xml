@@ -29,4 +29,6 @@
     <string name="ChooseLanguage">Выбери язык</string>
     <string name="Language">Язык</string>
     <string name="Yupee">Пользуйтесь нездоровье приложением BookUp!</string>
+    <string name="Authors">Авторы:</string>
+    <string name="remove">Удалить из моего списка</string>
 </resources>

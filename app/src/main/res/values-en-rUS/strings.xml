@@ -31,4 +31,6 @@
     <string name="ListName" translatable="false">List name</string>
     <string name="Language">Language:</string>
     <string name="Yupee">Enjoy the BookUp! app</string>
+    <string name="Authors">Authors:</string>
+    <string name="remove">Remove from my list</string>
 </resources>

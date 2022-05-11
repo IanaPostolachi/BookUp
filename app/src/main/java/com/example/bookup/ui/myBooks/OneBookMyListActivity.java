@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,9 +22,11 @@ public class OneBookMyListActivity extends AppCompatActivity {
     private TextView myPages;
     private TextView myDescription;
     private ImageView myImage;
+    private Button remove;
     private LinearLayout back;
     private Book book;
     private Gson gson = new Gson();
+    private MyBooksViewModel myBooksViewModel;
 
 
 
@@ -34,7 +37,9 @@ public class OneBookMyListActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         String data = bundle.getString("myBook");
+        String listId = bundle.getString("listId");
         book = gson.fromJson(data, Book.class);
+        myBooksViewModel = MyBooksViewModel.getInstance();
 
 
         myTitle = findViewById(R.id.myTitle);
@@ -58,6 +63,14 @@ public class OneBookMyListActivity extends AppCompatActivity {
         else {
             myImage.setImageResource(R.drawable.no_image_available_iconjpg);
         }
+
+//        remove = findViewById(R.id.remove);
+//        remove.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                myBooksViewModel.remove(listId,book.getId());
+//            }
+//        });
 
         back = findViewById(R.id.back_button_my_one_book);
         back.setOnClickListener(new View.OnClickListener() {

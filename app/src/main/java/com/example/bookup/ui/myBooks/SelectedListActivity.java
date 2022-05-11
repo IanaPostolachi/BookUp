@@ -27,6 +27,7 @@ public class SelectedListActivity extends AppCompatActivity implements SelectedL
     private RecyclerView booksView;
     private Gson gson;
     private MutableLiveData<Boolean> isLoading = new MutableLiveData<>(false);
+    private BookList books;
     private ProgressBar progressBar;
     private LinearLayout back;
     private TextView listName;
@@ -46,7 +47,7 @@ public class SelectedListActivity extends AppCompatActivity implements SelectedL
 
         Bundle bundle = getIntent().getExtras();
         String received= bundle.getString("myBooks");
-        BookList books = gson.fromJson(received, BookList.class);
+        books = gson.fromJson(received, BookList.class);
         if (books.getName().equals("Read later"))
         {
             listName.setText(R.string.ReadLater);
@@ -90,6 +91,7 @@ public class SelectedListActivity extends AppCompatActivity implements SelectedL
         Intent intent = new Intent(this, OneBookMyListActivity.class);
         String toNewView = gson.toJson(myBooks.get(clickedItemIndex));
         intent.putExtra("myBook", toNewView);
+        intent.putExtra("listId",books.getId());
 
         startActivityForResult(intent, 1);
     }
