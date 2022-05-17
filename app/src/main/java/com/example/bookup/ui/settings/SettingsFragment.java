@@ -40,13 +40,11 @@ public class SettingsFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         viewModel = new ViewModelProvider(this).get(SettingsViewModel.class);
-
         View root = inflater.inflate(R.layout.fragment_settings, container, false);
 
         languageField = root.findViewById(R.id.languageField);
         imageLanguage = root.findViewById(R.id.image_for_language);
         loadLocal();
-
 
         LinearLayout linearLayoutLang = root.findViewById(R.id.language);
         linearLayoutLang.setOnClickListener(v -> showChangeLanguageDialog());
@@ -163,6 +161,10 @@ public class SettingsFragment extends Fragment {
         }
     }
 
+    /**
+     * This reset method is needed to reset the page after you change the language.
+     * But it doesn't work. The language changes only when the user switches between tabs.
+     */
     public void reset() {
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         if (Build.VERSION.SDK_INT >= 26) {

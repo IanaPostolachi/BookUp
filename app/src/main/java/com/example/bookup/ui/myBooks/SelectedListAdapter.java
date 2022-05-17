@@ -54,6 +54,7 @@ public class SelectedListAdapter extends RecyclerView.Adapter<SelectedListAdapte
         else {
             holder.yearPublished.setText(R.string.no_date);
         }
+
         String authors = "";
         if (booksFromMyList.get(position).getVolumeInfo().getAuthors() != null) {
             authors = String.join(", ", booksFromMyList.get(position).getVolumeInfo().getAuthors());
@@ -63,6 +64,7 @@ public class SelectedListAdapter extends RecyclerView.Adapter<SelectedListAdapte
         {
             holder.author.setText(R.string.no_authors);
         }
+
         holder.title.setText(booksFromMyList.get(position).getVolumeInfo().getTitle());
         if (booksFromMyList.get(position).getVolumeInfo().getImageLinks() != null) {
             Glide.with(context)

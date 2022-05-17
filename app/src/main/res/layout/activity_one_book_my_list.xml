@@ -70,34 +70,42 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
                 android:layout_margin="20dp"
+                android:gravity="center_horizontal"
                 android:text="@string/Title"
                 android:textColor="@color/black"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/remove"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="45dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/book_holder"
+                android:backgroundTint="@color/purple_200">
 
-                <Button
-                    android:id="@+id/remove"
-                    android:layout_width="290dp"
-                    android:layout_height="47dp"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
                     android:text="@string/remove"
+                    android:textColor="@color/baby_gray"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/delete"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintEnd_toEndOf="@+id/delete"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/delete"
-                    android:layout_width="53dp"
-                    android:layout_height="45dp"
+                    android:layout_width="32dp"
+                    android:layout_height="25dp"
+                    android:layout_marginEnd="10dp"
                     android:src="@drawable/ic_delete"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -175,6 +183,4 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

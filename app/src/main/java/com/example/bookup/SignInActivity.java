@@ -39,7 +39,6 @@ public class SignInActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_sign_in);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -100,62 +99,4 @@ public class SignInActivity extends AppCompatActivity {
         startActivity(new Intent(this, MainActivity.class));
         finish();
     }
-
-
-    /**
-     * My way of signIn
-     */
-//    private void request() {
-//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-//                .requestIdToken("921806327374-dk7j5jddtbto049prkkcnhmlaglf0jnm.apps.googleusercontent.com")
-//                .requestEmail()
-//                .build();
-//
-//        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-//    }
-//
-//    public void signIn() {
-//        Intent sighInIntent = mGoogleSignInClient.getSignInIntent();
-//        startActivityForResult(sighInIntent, RC_SIGN_IN);
-//    }
-//
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if (requestCode == RC_SIGN_IN)
-//        {
-//            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-//            try {
-//                GoogleSignInAccount account = task.getResult(ApiException.class);
-//                firebaseAuthWithGoogle(account);
-//            }
-//            catch (ApiException e)
-//            {
-//                Toast.makeText(this, e.getMessage()+"This is an exception", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//    }
-//
-//    private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
-//        AuthCredential firebaseCredential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
-//        mAuth.signInWithCredential(firebaseCredential)
-//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        if (task.isSuccessful()) {
-//                            // Sign in success, update UI with the signed-in user's information
-//                            FirebaseUser user = mAuth.getCurrentUser();
-//
-//                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//                            startActivity(intent);
-//                        }
-//                        else
-//                        {
-//                            Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                });
-//    }
-
 }

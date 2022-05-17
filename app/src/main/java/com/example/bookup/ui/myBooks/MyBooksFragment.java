@@ -38,7 +38,6 @@ public class MyBooksFragment extends Fragment implements TypeOfListAdapter.OnLis
     private TextView noBooksMessage;
     private String name;
     private MutableLiveData<Boolean> isLoading = new MutableLiveData<>(false);
-
     private MutableLiveData<ArrayList<BookList>> books = new MutableLiveData<>();
 
 
@@ -46,6 +45,7 @@ public class MyBooksFragment extends Fragment implements TypeOfListAdapter.OnLis
         this.gson = new Gson();
         bookLists = new ArrayList<>();
     }
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -93,7 +93,6 @@ public class MyBooksFragment extends Fragment implements TypeOfListAdapter.OnLis
                 isLoading.setValue(false);
             }
 
-//            LinearLayoutManager manager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
             myLists.setLayoutManager(new LinearLayoutManager(getContext()));
             TypeOfListAdapter adapter = new TypeOfListAdapter(listOfBookLists, this);
             myLists.setAdapter(adapter);
@@ -117,14 +116,10 @@ public class MyBooksFragment extends Fragment implements TypeOfListAdapter.OnLis
 
     @Override
     public void onListItemClick(int clickedItemIndex) {
-//        if (!bookLists.get(clickedItemIndex).isEmpty()) {
-            Intent intent = new Intent(getContext(), SelectedListActivity.class);
-            String booksToBeDisplayed = gson.toJson(bookLists.get(clickedItemIndex));
-            intent.putExtra("myBooks", booksToBeDisplayed);
+        Intent intent = new Intent(getContext(), SelectedListActivity.class);
+        String booksToBeDisplayed = gson.toJson(bookLists.get(clickedItemIndex));
+        intent.putExtra("myBooks", booksToBeDisplayed);
 
-            startActivityForResult(intent,1);
-//        } else {
-//            Toast.makeText(getActivity(), "Nothing here yet", Toast.LENGTH_SHORT).show();
-//        }
+        startActivityForResult(intent, 1);
     }
 }

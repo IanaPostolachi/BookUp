@@ -77,7 +77,9 @@ public class BookDAO extends LiveData<Book> {
                 bookList.setImage(R.drawable.bookmark);
                 ArrayList<Book> readLaterBooks = new ArrayList<>();
                 for (DataSnapshot child : datasnapshot.getChildren()) {
-                    readLaterBooks.add(child.getValue(Book.class));
+                    Book book = child.getValue(Book.class);
+                    book.setId(child.getKey());
+                    readLaterBooks.add(book);
                 }
                 bookList.setBooks(readLaterBooks);
                 break;
@@ -87,7 +89,9 @@ public class BookDAO extends LiveData<Book> {
                 bookList.setImage(R.drawable.heart_book);
                 ArrayList<Book> favoriteBooks = new ArrayList<>();
                 for (DataSnapshot child : datasnapshot.getChildren()) {
-                    favoriteBooks.add(child.getValue(Book.class));
+                    Book book = child.getValue(Book.class);
+                    book.setId(child.getKey());
+                    favoriteBooks.add(book);
                 }
                 bookList.setBooks(favoriteBooks);
                 break;

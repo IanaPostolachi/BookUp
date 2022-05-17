@@ -1,6 +1,7 @@
 package com.example.bookup.ui.myBooks;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.bookup.Model.Book.Book;
@@ -22,10 +24,10 @@ public class OneBookMyListActivity extends AppCompatActivity {
     private TextView myPages;
     private TextView myDescription;
     private ImageView myImage;
-    private Button remove;
+    private ConstraintLayout remove;
     private LinearLayout back;
     private Book book;
-    private Gson gson = new Gson();
+    private Gson gson;
     private MyBooksViewModel myBooksViewModel;
 
 
@@ -34,6 +36,7 @@ public class OneBookMyListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_one_book_my_list);
+        gson = new Gson();
 
         Bundle bundle = getIntent().getExtras();
         String data = bundle.getString("myBook");
@@ -63,19 +66,26 @@ public class OneBookMyListActivity extends AppCompatActivity {
         else {
             myImage.setImageResource(R.drawable.no_image_available_iconjpg);
         }
-
+        /**
+         * The removing is not implemented properly.
+         * The book is removed only when you switch to another tab
+         * and go back to the your list only then he book disappears from the list.
+         */
 //        remove = findViewById(R.id.remove);
 //        remove.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
 //                myBooksViewModel.remove(listId,book.getId());
+//                Toast.makeText(getBaseContext(),"Book deleted!", Toast.LENGTH_LONG).show();
+//                finish();
 //            }
 //        });
+
 
         back = findViewById(R.id.back_button_my_one_book);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+                public void onClick(View view) {
                 goBack(view);
             }
         });

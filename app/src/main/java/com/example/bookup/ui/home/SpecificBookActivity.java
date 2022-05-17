@@ -20,7 +20,7 @@ import com.google.gson.Gson;
 public class SpecificBookActivity extends AppCompatActivity {
 
     private LinearLayout back;
-    private Gson gson = new Gson();
+    private Gson gson;
     private Book book;
     private Button addToReadLater;
     private ImageView addToFav;
@@ -37,6 +37,7 @@ public class SpecificBookActivity extends AppCompatActivity {
         setContentView(R.layout.activity_specific_book);
         viewModel = MyBooksViewModel.getInstance();
         back = findViewById(R.id.back_button_2);
+        gson = new Gson();
 
 
         Bundle bundle = getIntent().getExtras();
@@ -79,14 +80,8 @@ public class SpecificBookActivity extends AppCompatActivity {
         addToReadLater.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                if (!viewModel.getAllListsFromDB().getValue().get(index).getBooks().get(index).getVolumeInfo().getTitle().equals(book.getVolumeInfo().getTitle())) {
                     viewModel.saveMovie("read_later", book);
                     Toast.makeText(getBaseContext(), book.getVolumeInfo().getTitle() + " added to Read later", Toast.LENGTH_LONG).show();
-//                }
-//                else
-//                {
-//                    Toast.makeText(getBaseContext(), book.getVolumeInfo().getTitle() + " already on the list", Toast.LENGTH_LONG).show();
-//                }
             }
         });
 

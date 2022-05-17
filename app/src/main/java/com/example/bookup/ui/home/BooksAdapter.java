@@ -51,6 +51,7 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ViewHolder> 
         else {
             holder.yearPublished.setText(R.string.no_date);
         }
+
         String authors = "";
         if (books.get(position).getVolumeInfo().getAuthors() != null) {
             authors = String.join(", ", books.get(position).getVolumeInfo().getAuthors());
@@ -60,7 +61,9 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ViewHolder> 
         {
             holder.author.setText(R.string.no_authors);
         }
+
         holder.title.setText(books.get(position).getVolumeInfo().getTitle());
+
         if (books.get(position).getVolumeInfo().getImageLinks() != null) {
             Glide.with(context)
                     .load(books.get(position).getVolumeInfo().getImageLinks().getSmallThumbnail())
